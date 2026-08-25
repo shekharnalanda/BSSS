@@ -467,6 +467,7 @@
                 <li class="nav-item"><a class="nav-link" href="#committees">कार्यकारिणी</a></li>
                 <li class="nav-item"><a class="nav-link" href="/programs">कार्यक्रम</a></li>
                 <li class="nav-item"><a class="nav-link" href="/institutions">संस्थान / केन्द्र</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('affiliation.apply') }}">संबद्धता आवेदन</a></li>
                 <li class="nav-item"><a class="nav-link" href="/news-events">सूचना</a></li>
                 <li class="nav-item"><a class="nav-link" href="/gallery">गैलरी</a></li>
                 <li class="nav-item"><a class="nav-link" href="/downloads">डाउनलोड</a></li>

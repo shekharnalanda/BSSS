@@ -12,6 +12,11 @@ use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\MembershipApplicationController;
 use App\Http\Controllers\MemberVerificationController;
+use App\Http\Controllers\AffiliationApplicationController;
+use App\Http\Controllers\AffiliationVerificationController;
+use App\Http\Controllers\Admin\AffiliationApplicationController as AdminAffiliationApplicationController;
+use App\Http\Controllers\Admin\AffiliatedInstitutionController;
+
 use App\Http\Controllers\Admin\MembershipApplicationController as AdminMembershipApplicationController;
 use App\Http\Controllers\PublicSiteController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +34,13 @@ Route::post('/enquiry', [EnquiryController::class, 'store'])->middleware('thrott
 Route::get('/member/verify/{membershipNumber}', [MemberVerificationController::class, 'show'])
     ->where('membershipNumber', '[A-Za-z0-9\-]+')
     ->name('member.verify');
+
+Route::get('/affiliation/apply', [AffiliationApplicationController::class, 'create'])->name('affiliation.apply');
+Route::post('/affiliation/apply', [AffiliationApplicationController::class, 'store'])->middleware('throttle:5,1')->name('affiliation.store');
+
+Route::get('/affiliation/verify/{affiliationNumber}', [AffiliationVerificationController::class, 'show'])
+    ->where('affiliationNumber', '[A-Za-z0-9\-]+')
+    ->name('affiliation.verify');
 
 Route::get('/membership/apply', [MembershipApplicationController::class, 'create'])->name('membership.apply');
 Route::post('/membership/apply', [MembershipApplicationController::class, 'store'])->middleware('throttle:5,1')->name('membership.store');
@@ -100,6 +112,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::put('/members/{member}', [MemberController::class, 'update'])->name('members.update');
         Route::get('/members/{member}/card', [MemberController::class, 'card'])->name('members.card');
         Route::get('/members/{member}/certificate', [MemberController::class, 'certificate'])->name('members.certificate');
+
+        Route::get('/affiliation-applications', [AdminAffiliationApplicationController::class, 'index'])->name('affiliation-applications.index');
+        Route::patch('/affiliation-applications/{affiliationApplication}', [AdminAffiliationApplicationController::class, 'update'])->name('affiliation-applications.update');
+        Route::delete('/affiliation-applications/{affiliationApplication}', [AdminAffiliationApplicationController::class, 'destroy'])->name('affiliation-applications.destroy');
+
+        Route::get('/affiliated-institutions', [AffiliatedInstitutionController::class, 'index'])->name('affiliated-institutions.index');
+        Route::put('/affiliated-institutions/{affiliatedInstitution}', [AffiliatedInstitutionController::class, 'update'])->name('affiliated-institutions.update');
+        Route::get('/affiliated-institutions/{affiliatedInstitution}/certificate', [AffiliatedInstitutionController::class, 'certificate'])->name('affiliated-institutions.certificate');
 
         Route::get('/settings', [ContentController::class, 'settings'])->name('settings.index');
         Route::put('/settings', [ContentController::class, 'saveSettings'])->name('settings.update');

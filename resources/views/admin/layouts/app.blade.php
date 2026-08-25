@@ -144,6 +144,16 @@ Membership Applications
 Approved Members
 </a>
 
+<div class="group-title">Affiliation</div>
+
+<a href="{{ route('admin.affiliation-applications.index') }}">
+Affiliation Applications
+</a>
+
+<a href="{{ route('admin.affiliated-institutions.index') }}">
+Affiliated Institutions
+</a>
+
 <div class="group-title">Content</div>
 
 <a href="{{ route('admin.institutions.index') }}">

@@ -91,6 +91,7 @@ footer a{color:#eadfe1;text-decoration:none}
 <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">होम</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">हमारे बारे में</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('institutions') }}">संस्थान / केन्द्र</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('affiliation.apply') }}">संबद्धता आवेदन</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('programs') }}">कार्यक्रम</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('news-events') }}">सूचना</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('gallery') }}">गैलरी</a></li>
