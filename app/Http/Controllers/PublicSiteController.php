@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Download;
+use App\Models\Committee;
+use App\Models\LeadershipMessage;
+use App\Models\Program;
+use App\Models\MembershipType;
 use App\Models\GalleryItem;
 use App\Models\Institution;
 use App\Models\NewsPost;
@@ -18,9 +22,50 @@ class PublicSiteController extends Controller
     public function home()
     {
         return view('home', [
-            'institutions' => Institution::where('is_active', true)->orderBy('display_order')->orderBy('name')->get(),
-            'newsItems' => NewsPost::where('is_active', true)->orderByDesc('published_at')->orderByDesc('id')->limit(6)->get(),
-            'galleryItems' => GalleryItem::where('is_active', true)->orderBy('display_order')->orderByDesc('id')->limit(8)->get(),
+            'committees' => Committee::with([
+                    'members' => fn ($query) => $query
+                        ->where('is_active', true)
+                        ->orderBy('sort_order')
+                        ->orderBy('id')
+                ])
+                ->where('is_active', true)
+                ->orderBy('sort_order')
+                ->orderBy('id')
+                ->get(),
+
+            'presidentMessage' => LeadershipMessage::where('is_active', true)
+                ->where('is_featured', true)
+                ->orderBy('sort_order')
+                ->first(),
+
+            'programItems' => Program::where('is_active', true)
+                ->orderBy('sort_order')
+                ->orderBy('id')
+                ->limit(6)
+                ->get(),
+
+            'membershipTypes' => MembershipType::where('is_active', true)
+                ->orderBy('sort_order')
+                ->orderBy('id')
+                ->get(),
+
+            'institutions' => Institution::where('is_active', true)
+                ->orderBy('display_order')
+                ->orderBy('name')
+                ->get(),
+
+            'newsItems' => NewsPost::where('is_active', true)
+                ->orderByDesc('published_at')
+                ->orderByDesc('id')
+                ->limit(6)
+                ->get(),
+
+            'galleryItems' => GalleryItem::where('is_active', true)
+                ->orderBy('display_order')
+                ->orderByDesc('id')
+                ->limit(8)
+                ->get(),
+
             'settings' => $this->settings(),
         ]);
     }
