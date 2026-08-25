@@ -178,6 +178,10 @@ Enquiries
 
 <div class="group-title">System</div>
 
+<a href="{{ route('admin.profile.edit') }}">
+My Account / Change Password
+</a>
+
 <a href="{{ route('admin.settings.index') }}">
 Settings
 </a>

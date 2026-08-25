@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\LeadershipMessageController;
 use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\MembershipTypeController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -120,6 +121,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/affiliated-institutions', [AffiliatedInstitutionController::class, 'index'])->name('affiliated-institutions.index');
         Route::put('/affiliated-institutions/{affiliatedInstitution}', [AffiliatedInstitutionController::class, 'update'])->name('affiliated-institutions.update');
         Route::get('/affiliated-institutions/{affiliatedInstitution}/certificate', [AffiliatedInstitutionController::class, 'certificate'])->name('affiliated-institutions.certificate');
+
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::put('/profile', [ProfileController::class, 'updateProfile'])->name('profile.update');
+        Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password');
 
         Route::get('/settings', [ContentController::class, 'settings'])->name('settings.index');
         Route::put('/settings', [ContentController::class, 'saveSettings'])->name('settings.update');
