@@ -735,6 +735,64 @@
 </section>
 @endif
 
+@if($membershipTypes->count())
+<section class="section soft" id="membership">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <div class="section-kicker">सदस्यता</div>
+            <h2 class="section-title display-6">
+                BSSS से जुड़ें
+            </h2>
+            <p class="text-secondary">
+                संगठन के शैक्षणिक एवं सामाजिक अभियान का हिस्सा बनें
+            </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            @foreach($membershipTypes as $type)
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="purpose-card">
+
+                        <h3 class="h4 fw-bold">
+                            {{ $type->name }}
+                        </h3>
+
+                        @if($type->description)
+                            <p class="text-secondary">
+                                {{ $type->description }}
+                            </p>
+                        @endif
+
+                        @if(!is_null($type->fee))
+                            <div class="fw-bold mb-2">
+                                शुल्क: ₹{{ number_format((float)$type->fee,2) }}
+                            </div>
+                        @endif
+
+                        @if($type->validity_months)
+                            <div class="small text-secondary mb-3">
+                                अवधि: {{ $type->validity_months }} माह
+                            </div>
+                        @endif
+
+                        <a href="/contact"
+                           class="btn btn-bsss">
+                            सदस्यता हेतु संपर्क करें
+                        </a>
+
+                    </div>
+                </div>
+
+            @endforeach
+
+        </div>
+    </div>
+</section>
+@endif
+
 @if($institutions->count())
 <section class="section soft">
     <div class="container">

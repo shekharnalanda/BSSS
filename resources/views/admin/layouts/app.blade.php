@@ -128,6 +128,14 @@ alt="BSSS">
 राष्ट्रीय नेतृत्व संदेश
 </a>
 
+<a href="{{ route('admin.programs.index') }}">
+Programs
+</a>
+
+<a href="{{ route('admin.memberships.index') }}">
+Membership Types
+</a>
+
 <div class="group-title">Content</div>
 
 <a href="{{ route('admin.institutions.index') }}">

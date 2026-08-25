@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ContentController;
 use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\LeadershipMessageController;
+use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\MembershipTypeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\EnquiryController;
@@ -68,6 +70,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/leadership-messages', [LeadershipMessageController::class, 'store'])->name('leadership.store');
         Route::put('/leadership-messages/{leadershipMessage}', [LeadershipMessageController::class, 'update'])->name('leadership.update');
         Route::delete('/leadership-messages/{leadershipMessage}', [LeadershipMessageController::class, 'destroy'])->name('leadership.destroy');
+
+        Route::get('/programs', [ProgramController::class, 'index'])->name('programs.index');
+        Route::post('/programs', [ProgramController::class, 'store'])->name('programs.store');
+        Route::put('/programs/{program}', [ProgramController::class, 'update'])->name('programs.update');
+        Route::delete('/programs/{program}', [ProgramController::class, 'destroy'])->name('programs.destroy');
+
+        Route::get('/memberships', [MembershipTypeController::class, 'index'])->name('memberships.index');
+        Route::post('/memberships', [MembershipTypeController::class, 'store'])->name('memberships.store');
+        Route::put('/memberships/{membershipType}', [MembershipTypeController::class, 'update'])->name('memberships.update');
+        Route::delete('/memberships/{membershipType}', [MembershipTypeController::class, 'destroy'])->name('memberships.destroy');
 
         Route::get('/settings', [ContentController::class, 'settings'])->name('settings.index');
         Route::put('/settings', [ContentController::class, 'saveSettings'])->name('settings.update');

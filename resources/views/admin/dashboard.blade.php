@@ -132,26 +132,32 @@ Enquiries
 <div class="card p-4 mt-4">
 
 <h4 class="admin-heading">
-आगामी Admin Modules
+Programs & Membership
 </h4>
 
 <div class="row g-3">
 
 <div class="col-md-6">
-<div class="p-3 rounded border bg-light">
+<div class="p-3 rounded border bg-light h-100">
 <strong>Programs</strong>
-<div class="text-muted small">
+<div class="text-muted small mb-3">
 Database records: {{ $programCount }}
 </div>
+<a href="{{ route('admin.programs.index') }}" class="btn btn-bsss btn-sm">
+Programs Manage करें
+</a>
 </div>
 </div>
 
 <div class="col-md-6">
-<div class="p-3 rounded border bg-light">
+<div class="p-3 rounded border bg-light h-100">
 <strong>Membership Types</strong>
-<div class="text-muted small">
+<div class="text-muted small mb-3">
 Database records: {{ $membershipCount }}
 </div>
+<a href="{{ route('admin.memberships.index') }}" class="btn btn-bsss btn-sm">
+Membership Manage करें
+</a>
 </div>
 </div>
 
