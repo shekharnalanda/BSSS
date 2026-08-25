@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MemberController extends Controller
 {
@@ -41,10 +42,26 @@ class MemberController extends Controller
             'district' => ['nullable', 'string', 'max:100'],
             'state' => ['nullable', 'string', 'max:100'],
             'pincode' => ['nullable', 'string', 'max:10'],
-            'photo' => ['nullable', 'string', 'max:255'],
+            'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'valid_until' => ['nullable', 'date'],
             'status' => ['required', 'in:active,inactive,suspended'],
         ]);
+
+        unset($data['photo']);
+
+        if ($request->hasFile('photo')) {
+
+            if (
+                $member->photo &&
+                str_starts_with($member->photo, 'members/') &&
+                Storage::disk('public')->exists($member->photo)
+            ) {
+                Storage::disk('public')->delete($member->photo);
+            }
+
+            $data['photo'] = $request->file('photo')
+                ->store('members/photos', 'public');
+        }
 
         $member->update($data);
 

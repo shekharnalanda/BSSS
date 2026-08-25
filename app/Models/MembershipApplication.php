@@ -20,6 +20,7 @@ class MembershipApplication extends Model
         'district',
         'state',
         'pincode',
+        'photo',
         'message',
         'status',
         'admin_note',

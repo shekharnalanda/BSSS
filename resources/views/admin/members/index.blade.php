@@ -100,6 +100,7 @@ Edit
 
 <form method="POST"
       action="{{ route('admin.members.update',$member) }}"
+      enctype="multipart/form-data"
       class="mt-3 p-3 border rounded bg-light">
 
 @csrf
@@ -150,10 +151,18 @@ Edit
        value="{{ $member->pincode }}"
        placeholder="PIN">
 
+@if($member->photo)
+<div class="mb-2">
+<img src="{{ asset('storage/'.$member->photo) }}"
+     alt="{{ $member->name }}"
+     style="width:80px;height:95px;object-fit:cover;border-radius:8px">
+</div>
+@endif
+
 <input class="form-control mb-2"
+       type="file"
        name="photo"
-       value="{{ $member->photo }}"
-       placeholder="Photo path">
+       accept=".jpg,.jpeg,.png,.webp,image/*">
 
 <input class="form-control mb-2"
        type="date"

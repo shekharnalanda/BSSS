@@ -33,8 +33,14 @@ class MembershipApplicationController extends Controller
             'district' => ['nullable', 'string', 'max:100'],
             'state' => ['nullable', 'string', 'max:100'],
             'pincode' => ['nullable', 'string', 'max:10'],
+            'photo' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'message' => ['nullable', 'string', 'max:2000'],
         ]);
+
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')
+                ->store('members/applications', 'public');
+        }
 
         $data['status'] = 'pending';
 

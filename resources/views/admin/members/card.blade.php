@@ -7,86 +7,127 @@
 <title>ID Card - {{ $member->membership_number }}</title>
 
 <style>
+@page{size:86mm 54mm;margin:0}
+
 *{box-sizing:border-box}
+
 body{
 font-family:Arial,"Mangal",sans-serif;
 background:#eee;
 margin:0;
-padding:30px;
+padding:25px;
 }
-.actions{text-align:center;margin-bottom:20px}
+
+.actions{
+text-align:center;
+margin-bottom:18px;
+}
+
 .card{
 width:86mm;
 height:54mm;
 margin:auto;
 background:#fff;
-border:2px solid #7b1e2d;
-border-radius:10px;
+border:1.5px solid #7b1e2d;
+border-radius:3mm;
 overflow:hidden;
 position:relative;
-box-shadow:0 8px 25px rgba(0,0,0,.15);
+box-shadow:0 8px 24px rgba(0,0,0,.16);
 }
+
 .header{
-height:18mm;
+height:16mm;
 display:flex;
 align-items:center;
-gap:8px;
-padding:4px 8px;
+gap:2.5mm;
+padding:2mm 3mm;
 background:linear-gradient(90deg,#7b1e2d,#e97818);
 color:#fff;
 }
+
 .logo{
-width:14mm;
-height:14mm;
+width:12mm;
+height:12mm;
 object-fit:contain;
 background:#fff;
 border-radius:50%;
-padding:1mm;
+padding:.8mm;
 }
+
 .org{
-font-size:10px;
+font-size:9.5px;
 font-weight:bold;
 }
+
 .tagline{
-font-size:8px;
+font-size:7px;
+margin-top:1mm;
 }
+
 .content{
-display:flex;
-padding:5mm;
-gap:4mm;
+display:grid;
+grid-template-columns:19mm 1fr 18mm;
+gap:2.5mm;
+padding:3mm;
 }
+
 .photo{
-width:20mm;
-height:24mm;
+width:19mm;
+height:23mm;
 border:1px solid #ccc;
 object-fit:cover;
-background:#f3f3f3;
+border-radius:1.5mm;
 }
+
 .photo-placeholder{
-width:20mm;
-height:24mm;
+width:19mm;
+height:23mm;
 background:#f2e4d5;
 display:flex;
 align-items:center;
 justify-content:center;
 font-weight:bold;
+font-size:7px;
 color:#7b1e2d;
+border-radius:1.5mm;
 }
+
 .details{
-font-size:8px;
-line-height:1.55;
-flex:1;
+font-size:7px;
+line-height:1.45;
 }
+
 .name{
-font-size:12px;
+font-size:10px;
 font-weight:bold;
 color:#7b1e2d;
 }
+
 .member-no{
-font-size:9px;
+font-size:7.5px;
 font-weight:bold;
 color:#163b69;
+margin-bottom:1mm;
 }
+
+.qr-wrap{
+text-align:center;
+font-size:5.8px;
+color:#555;
+}
+
+#qrcode{
+width:17mm;
+height:17mm;
+margin:auto;
+}
+
+#qrcode img,
+#qrcode canvas{
+width:17mm!important;
+height:17mm!important;
+}
+
 .footer{
 position:absolute;
 bottom:0;
@@ -94,11 +135,12 @@ left:0;
 right:0;
 background:#163b69;
 color:#fff;
-padding:2mm 4mm;
-font-size:7px;
+padding:1.5mm 3mm;
+font-size:6px;
 display:flex;
 justify-content:space-between;
 }
+
 @media print{
 body{background:#fff;padding:0}
 .actions{display:none}
@@ -130,13 +172,17 @@ alt="BSSS">
 
 <div class="content">
 
+<div>
+
 @if($member->photo)
-<img src="{{ asset($member->photo) }}"
+<img src="{{ asset('storage/'.$member->photo) }}"
 class="photo"
 alt="{{ $member->name }}">
 @else
 <div class="photo-placeholder">PHOTO</div>
 @endif
+
+</div>
 
 <div class="details">
 
@@ -180,6 +226,12 @@ alt="{{ $member->name }}">
 @endif
 
 </div>
+
+<div class="qr-wrap">
+<div id="qrcode"></div>
+<div>Scan to Verify</div>
+</div>
+
 </div>
 
 <div class="footer">
@@ -188,6 +240,17 @@ alt="{{ $member->name }}">
 </div>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+new QRCode(document.getElementById("qrcode"), {
+    text: @json(route('member.verify', $member->membership_number)),
+    width: 128,
+    height: 128,
+    correctLevel: QRCode.CorrectLevel.M
+});
+</script>
 
 </body>
 </html>

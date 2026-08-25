@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\MembershipApplicationController;
+use App\Http\Controllers\MemberVerificationController;
 use App\Http\Controllers\Admin\MembershipApplicationController as AdminMembershipApplicationController;
 use App\Http\Controllers\PublicSiteController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,10 @@ Route::get('/downloads', [PublicSiteController::class, 'downloads'])->name('down
 Route::view('/career', 'career')->name('career');
 Route::view('/contact', 'contact')->name('contact');
 Route::post('/enquiry', [EnquiryController::class, 'store'])->middleware('throttle:10,1')->name('enquiry.store');
+Route::get('/member/verify/{membershipNumber}', [MemberVerificationController::class, 'show'])
+    ->where('membershipNumber', '[A-Za-z0-9\-]+')
+    ->name('member.verify');
+
 Route::get('/membership/apply', [MembershipApplicationController::class, 'create'])->name('membership.apply');
 Route::post('/membership/apply', [MembershipApplicationController::class, 'store'])->middleware('throttle:5,1')->name('membership.store');
 

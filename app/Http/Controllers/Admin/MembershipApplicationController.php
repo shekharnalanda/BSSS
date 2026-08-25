@@ -95,6 +95,7 @@ class MembershipApplicationController extends Controller
             'district' => $application->district,
             'state' => $application->state,
             'pincode' => $application->pincode,
+            'photo' => $application->photo,
             'joined_on' => now()->toDateString(),
             'valid_until' => $validUntil,
             'status' => 'active',

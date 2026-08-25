@@ -34,7 +34,7 @@
 </div>
 @endif
 
-<form method="POST" action="{{ route('membership.store') }}">
+<form method="POST" action="{{ route('membership.store') }}" enctype="multipart/form-data">
 @csrf
 
 <div class="row g-3">
@@ -67,6 +67,17 @@
 <div class="col-md-6">
 <label class="form-label">ईमेल</label>
 <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+</div>
+
+<div class="col-md-6">
+<label class="form-label">फोटो</label>
+<input type="file"
+       class="form-control"
+       name="photo"
+       accept=".jpg,.jpeg,.png,.webp,image/*">
+<div class="form-text">
+JPG, PNG या WEBP • अधिकतम 2 MB
+</div>
 </div>
 
 <div class="col-md-6">
