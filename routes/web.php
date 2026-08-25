@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\MembershipTypeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\MembershipApplicationController;
+use App\Http\Controllers\Admin\MembershipApplicationController as AdminMembershipApplicationController;
 use App\Http\Controllers\PublicSiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +24,9 @@ Route::get('/downloads', [PublicSiteController::class, 'downloads'])->name('down
 Route::view('/career', 'career')->name('career');
 Route::view('/contact', 'contact')->name('contact');
 Route::post('/enquiry', [EnquiryController::class, 'store'])->middleware('throttle:10,1')->name('enquiry.store');
+Route::get('/membership/apply', [MembershipApplicationController::class, 'create'])->name('membership.apply');
+Route::post('/membership/apply', [MembershipApplicationController::class, 'store'])->middleware('throttle:5,1')->name('membership.store');
+
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest')->group(function () {
@@ -80,6 +85,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/memberships', [MembershipTypeController::class, 'store'])->name('memberships.store');
         Route::put('/memberships/{membershipType}', [MembershipTypeController::class, 'update'])->name('memberships.update');
         Route::delete('/memberships/{membershipType}', [MembershipTypeController::class, 'destroy'])->name('memberships.destroy');
+
+        Route::get('/membership-applications', [AdminMembershipApplicationController::class, 'index'])->name('membership-applications.index');
+        Route::patch('/membership-applications/{membershipApplication}', [AdminMembershipApplicationController::class, 'update'])->name('membership-applications.update');
+        Route::delete('/membership-applications/{membershipApplication}', [AdminMembershipApplicationController::class, 'destroy'])->name('membership-applications.destroy');
 
         Route::get('/settings', [ContentController::class, 'settings'])->name('settings.index');
         Route::put('/settings', [ContentController::class, 'saveSettings'])->name('settings.update');

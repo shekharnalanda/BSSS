@@ -778,9 +778,9 @@
                             </div>
                         @endif
 
-                        <a href="/contact"
+                        <a href="{{ route('membership.apply') }}"
                            class="btn btn-bsss">
-                            सदस्यता हेतु संपर्क करें
+                            सदस्यता हेतु आवेदन करें
                         </a>
 
                     </div>

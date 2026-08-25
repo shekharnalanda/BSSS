@@ -136,6 +136,10 @@ Programs
 Membership Types
 </a>
 
+<a href="{{ route('admin.membership-applications.index') }}">
+Membership Applications
+</a>
+
 <div class="group-title">Content</div>
 
 <a href="{{ route('admin.institutions.index') }}">
