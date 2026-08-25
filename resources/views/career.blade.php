@@ -1,8 +1,54 @@
 @extends('layouts.app')
 
-@section('title', 'Career | Bharatiya Swatantra Shikshan Sangh')
+@section('title','अवसर | भारतीय स्वतंत्र शिक्षण संघ')
 
 @section('content')
-<section class="page-hero py-5 bg-light border-bottom"><div class="container py-4"><span class="badge bg-success-subtle text-success mb-3">Opportunities</span><h1 class="display-5 fw-bold">Career</h1><p class="lead text-secondary mb-0">Explore teaching, training, administration and support opportunities across Bharatiya Swatantra Shikshan Sangh.</p></div></section>
-<section class="py-5"><div class="container"><div class="row g-4"><div class="col-lg-7"><div class="card border-0 shadow-sm rounded-4"><div class="card-body p-4 p-lg-5"><h2 class="h4 fw-bold">Work With MCI</h2><p class="text-secondary">Vacancies and career opportunities from group institutions will be published here. Future updates can be managed through the admin panel.</p><ul class="text-secondary mb-0"><li>Academic and faculty positions</li><li>Computer trainers and instructors</li><li>Administrative and office roles</li><li>Library and student support roles</li><li>Web, digital and technical roles</li></ul></div></div></div><div class="col-lg-5"><div class="card border-0 shadow-sm rounded-4 bg-light"><div class="card-body p-4"><h2 class="h5 fw-bold">Send Your Profile</h2><p class="text-secondary">For current or future opportunities, contact Bharatiya Swatantra Shikshan Sangh with your profile and area of interest.</p><p class="mb-1"><strong>Email:</strong> mcieducationalgroup@gmail.com</p><p class="mb-0"><strong>Phone:</strong> 7004773247, 9334779133</p></div></div></div></div></div></section>
+
+<section class="page-hero">
+<div class="container">
+<span class="badge badge-bsss mb-3">अवसर</span>
+<h1 class="display-5">BSSS से जुड़ने के अवसर</h1>
+<p class="lead mb-0">शिक्षा, प्रशिक्षण, संगठन एवं सामाजिक विकास के क्षेत्र में सहयोग करें।</p>
+</div>
+</section>
+
+<section class="py-5">
+<div class="container">
+<div class="row g-4">
+
+<div class="col-lg-7">
+<div class="bsss-card p-4 p-lg-5">
+
+<h2 class="h4 section-title">कार्य एवं सहयोग क्षेत्र</h2>
+
+<ul class="text-secondary mb-0">
+<li>शिक्षक एवं शैक्षणिक सहयोग</li>
+<li>प्रशिक्षण एवं कौशल विकास</li>
+<li>संगठनात्मक एवं प्रशासनिक कार्य</li>
+<li>जिला एवं स्थानीय इकाई सहयोग</li>
+<li>शिक्षा जागरूकता एवं सामाजिक गतिविधियाँ</li>
+</ul>
+
+</div>
+</div>
+
+<div class="col-lg-5">
+<div class="bsss-card p-4">
+
+<h2 class="h5 section-title">संपर्क करें</h2>
+
+<p class="text-secondary">
+वर्तमान या भविष्य के सहयोग अवसरों के लिए भारतीय स्वतंत्र शिक्षण संघ से संपर्क करें।
+</p>
+
+<p class="mb-1"><strong>भारत मानस</strong></p>
+<p class="mb-0"><strong>मोबाइल:</strong> 9430888639</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
 @endsection

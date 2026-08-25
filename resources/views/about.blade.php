@@ -1,44 +1,76 @@
 @extends('layouts.app')
 
-@section('title','About Us | Bharatiya Swatantra Shikshan Sangh')
-@section('meta_description','Know about Bharatiya Swatantra Shikshan Sangh, working under Chandrashekhar & Narayan Educational Trust.')
+@section('title','हमारे बारे में | भारतीय स्वतंत्र शिक्षण संघ')
+@section('meta_description','भारतीय स्वतंत्र शिक्षण संघ (BSSS) के उद्देश्य, दृष्टिकोण और शैक्षणिक संकल्प के बारे में जानें।')
 
 @section('content')
+
 <section class="page-hero">
-    <div class="container">
-        <span class="badge bg-light text-primary mb-3">About the Group</span>
-        <h1 class="display-5 fw-bold">Bharatiya Swatantra Shikshan Sangh</h1>
-        <p class="lead mb-0">An Institution With Global Reach</p>
-    </div>
+<div class="container">
+<span class="badge badge-bsss mb-3">परिचय</span>
+<h1 class="display-5">भारतीय स्वतंत्र शिक्षण संघ</h1>
+<p class="lead mb-0">शिक्षित भारत • समृद्ध भारत</p>
+</div>
 </section>
 
 <section class="py-5">
-    <div class="container">
-        <div class="row g-5 align-items-center">
-            <div class="col-lg-7">
-                <h2 class="section-title mb-3">Education, Skills and Opportunities Under One Group</h2>
-                <p>Bharatiya Swatantra Shikshan Sangh works under Chandrashekhar &amp; Narayan Educational Trust and brings together education, computer training, digital learning, library services and web services through its growing network of institutions and projects.</p>
-                <p>Our aim is to provide accessible, practical and future-ready learning opportunities while creating a common platform for students, families, institutions and the community.</p>
-            </div>
-            <div class="col-lg-5">
-                <div class="p-4 rounded-4 bg-light border">
-                    <h5 class="fw-bold">Group Office</h5>
-                    <p class="mb-2">MCI CAMPUS, Quamruddin Ganj, Bihar Sharif, Nalanda - 803101, Bihar (India)</p>
-                    <p class="mb-1"><strong>Phone:</strong> 7004773247, 9334779133</p>
-                    <p class="mb-0"><strong>Email:</strong> mcieducationalgroup@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="container">
+<div class="row g-5 align-items-center">
+
+<div class="col-lg-7">
+<h2 class="section-title">शिक्षा से सशक्त समाज और समृद्ध राष्ट्र</h2>
+
+<p class="fs-5">
+भारतीय स्वतंत्र शिक्षण संघ (BSSS) शिक्षा, स्वतंत्र शिक्षण संस्थानों,
+शिक्षकों, विद्यार्थियों एवं समाज को एक सशक्त शैक्षणिक मंच से जोड़ने की दिशा में कार्यरत संगठन है।
+</p>
+
+<p>
+संगठन का उद्देश्य शिक्षा की पहुँच बढ़ाना, गुणवत्तापूर्ण शिक्षण को प्रोत्साहित करना,
+कौशल विकास एवं स्वावलम्बन को बढ़ावा देना तथा शिक्षा के माध्यम से राष्ट्र निर्माण में योगदान करना है।
+</p>
+</div>
+
+<div class="col-lg-5">
+<div class="bsss-card p-4">
+<h4 class="section-title">राष्ट्रीय नेतृत्व</h4>
+<p class="mb-1"><strong>राष्ट्रीय अध्यक्ष एवं Authorized Person</strong></p>
+<h5 class="fw-bold">भारत मानस</h5>
+<p class="mb-0"><strong>मोबाइल:</strong> 9430888639</p>
+</div>
+</div>
+
+</div>
+</div>
 </section>
 
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4"><div class="p-4 bg-white rounded-4 h-100 shadow-sm"><h4 class="section-title">Vision</h4><p class="mb-0">To build a trusted educational ecosystem that connects knowledge, skills, technology and opportunity.</p></div></div>
-            <div class="col-md-4"><div class="p-4 bg-white rounded-4 h-100 shadow-sm"><h4 class="section-title">Mission</h4><p class="mb-0">To expand quality learning and practical skill development through responsive institutions and modern digital services.</p></div></div>
-            <div class="col-md-4"><div class="p-4 bg-white rounded-4 h-100 shadow-sm"><h4 class="section-title">Values</h4><p class="mb-0">Quality, accessibility, innovation, service, transparency and continuous improvement.</p></div></div>
-        </div>
-    </div>
+<section class="py-5" style="background:var(--cream)">
+<div class="container">
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="bsss-card bg-white p-4">
+<h3 class="section-title h4">दृष्टिकोण</h3>
+<p class="mb-0">एक ऐसा भारत जहाँ गुणवत्तापूर्ण शिक्षा और कौशल विकास प्रत्येक नागरिक की पहुँच में हो।</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="bsss-card bg-white p-4">
+<h3 class="section-title h4">मिशन</h3>
+<p class="mb-0">शिक्षण संस्थानों, शिक्षकों और विद्यार्थियों को संगठित सहयोग देकर शिक्षा की गुणवत्ता एवं पहुँच को मजबूत करना।</p>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="bsss-card bg-white p-4">
+<h3 class="section-title h4">मूल्य</h3>
+<p class="mb-0">शिक्षा, सेवा, पारदर्शिता, सहयोग, स्वावलम्बन, समान अवसर और राष्ट्रहित।</p>
+</div>
+</div>
+
+</div>
+</div>
 </section>
+
 @endsection

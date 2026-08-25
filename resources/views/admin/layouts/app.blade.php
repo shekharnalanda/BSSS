@@ -11,7 +11,7 @@
 <body>
 <div class="container-fluid"><div class="row">
     <aside class="col-lg-2 p-3 sidebar">
-        <h5 class="fw-bold">MCI ADMIN</h5><hr>
+        <h5 class="fw-bold">BSSS ADMIN</h5><hr>
         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         <a href="{{ route('admin.institutions.index') }}">Institutions</a>
         <a href="{{ route('admin.news.index') }}">News & Events</a>

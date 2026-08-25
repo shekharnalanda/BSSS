@@ -1,36 +1,44 @@
 @extends('layouts.app')
 
-@section('title', 'Programs & Services | Bharatiya Swatantra Shikshan Sangh')
+@section('title','कार्यक्रम | भारतीय स्वतंत्र शिक्षण संघ')
+@section('meta_description','BSSS के शिक्षा, कौशल विकास, शिक्षक सहयोग और सामाजिक जागरूकता कार्यक्रम।')
 
 @section('content')
-<section class="page-hero py-5 bg-light border-bottom">
-    <div class="container py-4">
-        <span class="badge bg-success-subtle text-success mb-3">Learning & Growth</span>
-        <h1 class="display-5 fw-bold">Programs & Educational Services</h1>
-        <p class="lead text-secondary mb-0">Explore education, skill development, digital learning, career support and technology services offered across the Bharatiya Swatantra Shikshan Sangh network.</p>
-    </div>
+
+<section class="page-hero">
+<div class="container">
+<span class="badge badge-bsss mb-3">शिक्षा एवं विकास</span>
+<h1 class="display-5">हमारे प्रमुख कार्यक्रम</h1>
+<p class="lead mb-0">शिक्षा, कौशल, सहयोग और राष्ट्र निर्माण की दिशा में पहल</p>
+</div>
 </section>
+
 <section class="py-5">
-    <div class="container">
-        <div class="row g-4">
-            @foreach([
-                ['Computer Education','Certificate, diploma and practical computer education through our institutes.'],
-                ['Online Learning','Digital study support, learning resources and student-focused online services.'],
-                ['Library & Study Support','Reading, study hall and knowledge resources for students and competitive learners.'],
-                ['Web & Digital Services','Website development, digital presence and technology support through C-Net Web Services.'],
-                ['Career & Skill Development','Skill-oriented learning, job information and employability-focused guidance.'],
-                ['Future Programs','New educational and service programs can be added from the admin panel as the group expands.']
-            ] as $item)
-            <div class="col-md-6 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4">
-                        <h3 class="h5 fw-bold">{{ $item[0] }}</h3>
-                        <p class="text-secondary mb-0">{{ $item[1] }}</p>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
+<div class="container">
+
+<div class="row g-4">
+
+@foreach([
+['शैक्षणिक जागरूकता','समाज में शिक्षा के महत्व और गुणवत्तापूर्ण शिक्षण के प्रति जागरूकता बढ़ाना।'],
+['विद्यालय एवं संस्थान सहयोग','स्वतंत्र विद्यालयों और शिक्षण संस्थानों को संगठनात्मक एवं शैक्षणिक सहयोग प्रदान करना।'],
+['शिक्षक विकास','शिक्षकों के प्रशिक्षण, क्षमता विकास और आधुनिक शिक्षण पद्धतियों को प्रोत्साहित करना।'],
+['कौशल एवं रोजगारोन्मुख शिक्षा','युवाओं और विद्यार्थियों के लिए व्यावहारिक एवं रोजगारोन्मुख कौशल को बढ़ावा देना।'],
+['विद्यार्थी सहयोग','विद्यार्थियों को मार्गदर्शन, शैक्षणिक संसाधन और अवसरों से जोड़ने की पहल।'],
+['सामाजिक एवं राष्ट्रीय जागरूकता','शिक्षा के माध्यम से सामाजिक जिम्मेदारी, स्वावलम्बन और राष्ट्र निर्माण को मजबूत करना।']
+] as $item)
+
+<div class="col-md-6 col-lg-4">
+<div class="bsss-card p-4">
+<div class="badge badge-bsss mb-3">BSSS</div>
+<h3 class="h5 section-title">{{ $item[0] }}</h3>
+<p class="text-secondary mb-0">{{ $item[1] }}</p>
+</div>
+</div>
+
+@endforeach
+
+</div>
+</div>
 </section>
+
 @endsection
