@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminNotification;
 use App\Models\Member;
 use App\Models\MembershipApplication;
 use Illuminate\Http\Request;
@@ -38,6 +39,14 @@ class MembershipApplicationController extends Controller
                 $this->createOrUpdateMember($membershipApplication);
             }
         });
+
+        AdminNotification::create([
+            'type' => 'membership_status',
+            'title' => 'Membership Application '.ucfirst($data['status']),
+            'message' => $membershipApplication->name.' का membership application '.$data['status'].' किया गया।',
+            'url' => route('admin.membership-applications.index'),
+            'is_read' => true,
+        ]);
 
         return back()->with('success', 'Membership application updated successfully.');
     }

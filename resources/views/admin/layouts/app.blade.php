@@ -100,6 +100,11 @@ color:#fff;
 
 <body>
 
+@php(
+    $unreadNotifications = \App\Models\AdminNotification::where('is_read',false)->count()
+)
+
+
 <div class="container-fluid">
 <div class="row">
 
@@ -117,6 +122,15 @@ alt="BSSS">
 <hr>
 
 <a href="{{ route('admin.dashboard') }}">▣ Dashboard</a>
+
+<a href="{{ route('admin.notifications.index') }}">
+🔔 Notifications
+@if($unreadNotifications > 0)
+<span class="badge bg-warning text-dark float-end">
+{{ $unreadNotifications }}
+</span>
+@endif
+</a>
 
 <div class="group-title">संगठन</div>
 

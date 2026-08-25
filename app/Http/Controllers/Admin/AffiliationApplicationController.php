@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminNotification;
 use App\Models\AffiliatedInstitution;
 use App\Models\AffiliationApplication;
 use Illuminate\Http\Request;
@@ -43,6 +44,14 @@ class AffiliationApplicationController extends Controller
                 $this->createOrUpdateInstitution($affiliationApplication);
             }
         });
+
+        AdminNotification::create([
+            'type' => 'affiliation_status',
+            'title' => 'Affiliation Application '.ucfirst($data['status']),
+            'message' => $affiliationApplication->institution_name.' का affiliation application '.$data['status'].' किया गया।',
+            'url' => route('admin.affiliation-applications.index'),
+            'is_read' => true,
+        ]);
 
         return back()->with('success','Affiliation application updated.');
     }

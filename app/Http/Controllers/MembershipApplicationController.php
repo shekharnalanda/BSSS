@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminNotification;
 use App\Models\MembershipApplication;
 use App\Models\MembershipType;
 use Illuminate\Http\Request;
@@ -44,7 +45,14 @@ class MembershipApplicationController extends Controller
 
         $data['status'] = 'pending';
 
-        MembershipApplication::create($data);
+        $application = MembershipApplication::create($data);
+
+        AdminNotification::create([
+            'type' => 'membership_application',
+            'title' => 'New Membership Application',
+            'message' => $application->name.' ने नया membership application submit किया है।',
+            'url' => route('admin.membership-applications.index'),
+        ]);
 
         return back()->with(
             'success',

@@ -138,6 +138,27 @@ Website ↗
 </div>
 </div>
 
+<div class="card p-4 mb-4">
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+
+<div>
+<div class="metric-label">Unread Notifications</div>
+<div class="metric-number">{{ number_format($unreadNotificationCount) }}</div>
+<div class="small text-muted">
+Membership और affiliation activity alerts
+</div>
+</div>
+
+<a href="{{ route('admin.notifications.index') }}"
+   class="btn btn-bsss">
+View Notifications
+</a>
+
+</div>
+
+</div>
+
 {{-- ATTENTION REQUIRED --}}
 
 <div class="row g-4 mb-4">

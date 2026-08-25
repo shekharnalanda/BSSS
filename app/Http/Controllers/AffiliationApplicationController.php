@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminNotification;
 use App\Models\AffiliationApplication;
 use Illuminate\Http\Request;
 
@@ -33,7 +34,14 @@ class AffiliationApplicationController extends Controller
 
         $data['status'] = 'pending';
 
-        AffiliationApplication::create($data);
+        $application = AffiliationApplication::create($data);
+
+        AdminNotification::create([
+            'type' => 'affiliation_application',
+            'title' => 'New Affiliation Application',
+            'message' => $application->institution_name.' ने नया affiliation application submit किया है।',
+            'url' => route('admin.affiliation-applications.index'),
+        ]);
 
         return back()->with(
             'success',
