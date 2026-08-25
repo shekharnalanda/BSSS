@@ -418,7 +418,56 @@
                 padding:58px 0;
             }
         }
-    </style>
+    
+/* BSSS_HERO_VISIBILITY_40 */
+
+/*
+ * Professional hero treatment:
+ * image remains visible but subdued so that
+ * organization name, message and CTA stay dominant.
+ */
+.hero{
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+}
+
+/* Existing hero image is softened through the overlay.
+   Approximate perceived image strength: 40%. */
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:
+        linear-gradient(
+            100deg,
+            rgba(81,19,30,.66) 0%,
+            rgba(81,19,30,.54) 38%,
+            rgba(22,59,105,.48) 72%,
+            rgba(22,59,105,.38) 100%
+        );
+    pointer-events:none;
+}
+
+.hero > .container{
+    position:relative;
+    z-index:2;
+}
+
+@media(max-width:767px){
+    .hero::before{
+        background:
+            linear-gradient(
+                180deg,
+                rgba(81,19,30,.64) 0%,
+                rgba(81,19,30,.55) 52%,
+                rgba(22,59,105,.48) 100%
+            );
+    }
+}
+
+</style>
 </head>
 
 <body>
