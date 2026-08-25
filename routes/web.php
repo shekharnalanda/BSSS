@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ContentController;
+use App\Http\Controllers\Admin\CommitteeController;
+use App\Http\Controllers\Admin\LeadershipMessageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\EnquiryController;
@@ -52,6 +54,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/enquiries', [ContentController::class, 'enquiries'])->name('enquiries.index');
         Route::patch('/enquiries/{enquiry}', [ContentController::class, 'updateEnquiry'])->name('enquiries.update');
         Route::delete('/enquiries/{enquiry}', [ContentController::class, 'deleteEnquiry'])->name('enquiries.destroy');
+
+        Route::get('/committees', [CommitteeController::class, 'index'])->name('committees.index');
+        Route::post('/committees', [CommitteeController::class, 'store'])->name('committees.store');
+        Route::put('/committees/{committee}', [CommitteeController::class, 'update'])->name('committees.update');
+        Route::delete('/committees/{committee}', [CommitteeController::class, 'destroy'])->name('committees.destroy');
+
+        Route::post('/committees/{committee}/members', [CommitteeController::class, 'storeMember'])->name('committee-members.store');
+        Route::put('/committee-members/{member}', [CommitteeController::class, 'updateMember'])->name('committee-members.update');
+        Route::delete('/committee-members/{member}', [CommitteeController::class, 'destroyMember'])->name('committee-members.destroy');
+
+        Route::get('/leadership-messages', [LeadershipMessageController::class, 'index'])->name('leadership.index');
+        Route::post('/leadership-messages', [LeadershipMessageController::class, 'store'])->name('leadership.store');
+        Route::put('/leadership-messages/{leadershipMessage}', [LeadershipMessageController::class, 'update'])->name('leadership.update');
+        Route::delete('/leadership-messages/{leadershipMessage}', [LeadershipMessageController::class, 'destroy'])->name('leadership.destroy');
 
         Route::get('/settings', [ContentController::class, 'settings'])->name('settings.index');
         Route::put('/settings', [ContentController::class, 'saveSettings'])->name('settings.update');
