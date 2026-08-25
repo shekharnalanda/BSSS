@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CommitteeController;
 use App\Http\Controllers\Admin\LeadershipMessageController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\MembershipTypeController;
+use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InstitutionController;
 use App\Http\Controllers\EnquiryController;
@@ -89,6 +90,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/membership-applications', [AdminMembershipApplicationController::class, 'index'])->name('membership-applications.index');
         Route::patch('/membership-applications/{membershipApplication}', [AdminMembershipApplicationController::class, 'update'])->name('membership-applications.update');
         Route::delete('/membership-applications/{membershipApplication}', [AdminMembershipApplicationController::class, 'destroy'])->name('membership-applications.destroy');
+
+        Route::get('/members', [MemberController::class, 'index'])->name('members.index');
+        Route::put('/members/{member}', [MemberController::class, 'update'])->name('members.update');
+        Route::get('/members/{member}/card', [MemberController::class, 'card'])->name('members.card');
+        Route::get('/members/{member}/certificate', [MemberController::class, 'certificate'])->name('members.certificate');
 
         Route::get('/settings', [ContentController::class, 'settings'])->name('settings.index');
         Route::put('/settings', [ContentController::class, 'saveSettings'])->name('settings.update');

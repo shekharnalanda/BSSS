@@ -10,6 +10,7 @@ use App\Models\Enquiry;
 use App\Models\GalleryItem;
 use App\Models\Institution;
 use App\Models\LeadershipMessage;
+use App\Models\Member;
 use App\Models\MembershipType;
 use App\Models\NewsPost;
 use App\Models\Program;
@@ -21,6 +22,7 @@ class DashboardController extends Controller
         return view('admin.dashboard', [
             'committeeCount' => Committee::count(),
             'memberCount' => CommitteeMember::count(),
+            'memberPermanentCount' => Member::count(),
             'leadershipCount' => LeadershipMessage::count(),
             'programCount' => Program::count(),
             'membershipCount' => MembershipType::count(),

@@ -34,6 +34,7 @@ Website देखें
 ['सूचना / समाचार',$newsCount,'admin.news.index'],
 ['Gallery',$galleryCount,'admin.gallery.index'],
 ['Downloads',$downloadCount,'admin.downloads.index'],
+['Approved Members',$memberPermanentCount,'admin.members.index'],
 ['Enquiries',$enquiryCount,'admin.enquiries.index']
 ] as [$label,$count,$route])
 

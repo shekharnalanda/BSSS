@@ -140,6 +140,10 @@ Membership Types
 Membership Applications
 </a>
 
+<a href="{{ route('admin.members.index') }}">
+Approved Members
+</a>
+
 <div class="group-title">Content</div>
 
 <a href="{{ route('admin.institutions.index') }}">
