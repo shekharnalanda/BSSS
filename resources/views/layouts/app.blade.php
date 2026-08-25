@@ -97,6 +97,21 @@ footer a{color:#eadfe1;text-decoration:none}
 <li class="nav-item"><a class="nav-link" href="{{ route('gallery') }}">गैलरी</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('downloads') }}">डाउनलोड</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">संपर्क</a></li>
+
+<!-- BSSS_ADMIN_LOGIN_BUTTON -->
+<div class="ms-lg-3 mt-3 mt-lg-0">
+    @auth
+        <a href="{{ route('admin.dashboard') }}"
+           class="btn btn-bsss">
+            Admin Dashboard
+        </a>
+    @else
+        <a href="{{ route('admin.login') }}"
+           class="btn btn-bsss">
+            Admin Login
+        </a>
+    @endauth
+</div>
 </ul>
 </div>
 </div>
