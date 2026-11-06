@@ -1090,8 +1090,8 @@
 
 
 <!-- Homepage tile likes and views; comments are intentionally not enabled. -->
-<link rel="stylesheet" href="/tile-engagement.css?v=20261106-1">
-<script src="/tile-engagement.js?v=20261106-1" data-endpoint="/tile-engagement.php" data-tiles=".purpose-card,.committee-card,.news-card,main .card" defer></script>
+<link rel="stylesheet" href="/tile-engagement.css?v=20261106-2">
+<script src="/tile-engagement.js?v=20261106-2" data-endpoint="/tile-engagement.php" data-tiles=".purpose-card,.committee-card,.news-card,main .card" defer></script>
 </body>
 </html>
 
